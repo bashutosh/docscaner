@@ -1,0 +1,13 @@
+<div [class.d-none]="processing">
+     <ngx-doc-scanner  *ngIf="image" [file]="image" [config]="config" (editResult)="editResult($event)" (exitEditor)="exitEditor($event)" (error)="onError($event)" (processing)="editorState($event)">
+     </ngx-doc-scanner>
+     <input id="inputBox" style="display:none" type="file" accept="image" (change)="openFile($event)">
+     <div style="text-align:center;padding-top: 100px;">
+          <button (click)="openInputFile()" style="text-align: center;background: #cecece;border: none;padding:10px 20px;border-radius: 4px;" >Upload Image</button>
+     </div>
+</div>
+<ng-container *ngIf="processing">
+     <div style="text-align: center;">
+          <mat-spinner style="margin: auto"></mat-spinner>
+     </div>
+</ng-container>
